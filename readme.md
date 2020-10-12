@@ -5,7 +5,7 @@ coding style, and ability to work with the tools that we use in our projects.
 
 ### Use following tools
 
-- Backend REST API: Symfony + MySQL + PHPUnit
+- Backend: Symfony + MySQL + PHPUnit
 - Frontend: Simple HTML user interface
 
 -----------------------------------------
