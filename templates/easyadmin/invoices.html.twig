@@ -1,0 +1,24 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block header %}
+    <h1>{{ ea.dashboardTitle }}</h1>
+{% endblock header %}
+
+{% block main %}
+{#    {{ dump(ea.mainMenu.items) }}#}
+    {% for menuItem in ea.mainMenu.items %}
+{#        {{ _self.render_menu_item(menuItem) }}#}
+    {% endfor %}
+  <div>
+    <h4>Upload invoices file:</h4><br />
+    <div class="action_button action_add template_add">
+      <form action="{{ ea_url().SetRoute('upload_csv') }}" method="post" enctype="multipart/form-data">
+        <input name="upload" type="file">
+{#        TODO: add flag for choose on\of preview\preedit before commiting#}
+{#        now its default ON, but if big file - will be memory limit exceeded on client#}
+        <button type="submit">Upload!</button>
+      </form>
+    </div>
+  </div>
+      
+{% endblock main %}

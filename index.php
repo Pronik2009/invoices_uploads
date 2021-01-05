@@ -1,0 +1,1 @@
+D:/OpenServer/domains/tallindolls/public/index.php

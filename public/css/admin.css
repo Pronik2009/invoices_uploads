@@ -1,0 +1,10 @@
+.upload_row {
+    display:flex;
+    border: solid;
+}
+.upload_row div {
+    padding-right: 1%;
+}
+.field-datetime{
+    
+}

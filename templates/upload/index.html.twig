@@ -1,0 +1,31 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_header_wrapper %} {% endblock content_header_wrapper %}
+
+{# The main page content block #}
+{% block main %}
+   File "{{ filename }}" successfully uploaded. Please confirm saving:
+   <br/>
+  <form action="{{ path('add_invoices_from_csv', {'filename':filename}) }}" method="post" enctype="multipart/form-data">
+   {% for row in spreadsheet %}
+       <div class='upload_row'>
+           <div>#{{ row['rowNum'] }}</div>
+           <div><label for="id">ID</label>
+           <input type="text" name="{{ row['rowNum'] }}[id]" required value="{{ row['rowContent']['id'] }}"></div>
+           <div><label for="amount">amount</label>
+           <input type="text" name="{{ row['rowNum'] }}[amount]" required value="{{ row['rowContent']['amount'] }}"></div>
+           <div><label for="data">due date</label>
+           <input type="text" name="{{ row['rowNum'] }}[data]" required value="{{ row['rowContent']['data'] }}"></div>
+           <div><label for="data">selling price</label>
+           <input type="text" name="{{ row['rowNum'] }}[sellingprice]" required value="{{ row['rowContent']['sellingprice'] }}"></div>
+       </div>
+   {% endfor %}
+   <br/>
+        <button type="submit">Upload!</button>
+  </form>
+
+{% endblock main %}
+
+{% block footer %} 
+        
+{% endblock footer %}
